@@ -1,343 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <title>Profile Upload</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CSS -->
     <style>
-        body {
-            background: url('https://www.example.com/background-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-
-        .header-bg {
-            background: #FCE7F3;
-        }
-
-        .shadow-text {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .social-icon:hover {
-            transform: scale(1.2);
-        }
-
-        /* Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
+        /* Additional styling if needed */
+        #navbarProfileImage {
+            width: 40px; /* Adjust size as needed */
+            height: 40px; /* Adjust size as needed */
+            border-radius: 50%; /* Make image circular */
+            background-color: #e5e7eb; /* Light gray background if no image */
+            background-size: cover; /* Ensure image covers the container */
         }
     </style>
 </head>
+<body class="bg-gray-100">
 
-<body class="bg-pink-100">
 
-    <header class="header-bg text-gray-600 body-font shadow-md">
-        <div class="container mx-auto flex flex-wrap p-5 items-center ">
-            <a class="flex items-center text-gray-900 mb-4 md:mb-0">
-                <div class="w-10 rounded-full relative">
-                    <img src="hgpink.jpeg" alt="hg-logo-picture" class="rounded-full" />
-                    <span
-                        class="absolute bottom-0 right-0 w-2 h-2 bg-green-400 rounded-full border-2 border-white"></span>
-                </div>
-                <span class="ml-3 text-xl font-mono font-bold ">Hadiqa Gohar</span>
-            </a>
-            <nav class="flex space-x-4 md:space-x-6 text-lg font-semibold ml-auto">
-                <a href="#home" class="hover:text-pink-600 transition duration-300">Home</a>
-                <a href="#about" class="hover:text-pink-600 transition duration-300">About</a>
-                <a href="#education" class="hover:text-pink-600 transition duration-300">Education</a>
-                <a href="#skills" class="hover:text-pink-600 transition duration-300">Skills</a>
-                <a href="#contact" class="hover:text-pink-600 transition duration-300">Contact</a>
-                <a href="#resume" class="hover:text-pink-600 transition duration-300">Resume</a>
-            </nav>
 
+    <!-- Navbar -->
+    <nav class="navbar flex items-center bg-blue-100 text-gray-700 p-4 relative">
+        <div id="navbarProfileImage" class="flex items-center mr-4">
+            <!-- Profile image will be inserted here -->
         </div>
-        
-    </header>
+        <!-- Navigation Links -->
+        <div class="mr-auto flex flex-wrap space-x-4">
+            <a href="#home" class="hover:text-blue-900 transition duration-300 text-left font-bold p-2">Home</a>
+            <a href="#about" class="hover:text-blue-900 transition duration-300 text-left font-bold p-2">About</a>
+            <a href="#education" class="hover:text-blue-900 transition duration-300 text-left font-bold p-2">Education</a>
+            <a href="#skills" class="hover:text-blue-900 transition duration-300 text-left font-bold p-2">Skills</a>
+            <a href="#workExperience" class="hover:text-blue-900 transition duration-300 text-left font-bold p-2">Experience</a>
+            
+        </div>
+    </nav>
 
-    <section id="home" class="py-10 md:py-20 bg-pink-100">
+
+
+    <!-- ...........................Home Section...................... -->
+
+
+
+    <section id="home" class="py-10 md:py-20 bg-blue-100">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
             <div class="flex-1 pb-5 md:pb-0 mt-10">
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 shadow-text">Hello, I'm Hadiqa Gohar</h1>
-                <h2 class="text-3xl md:text-4xl font-bold text-red-500 mb-4 shadow-text">
-                    <span class="multiple-text text-pink-600"></span>
-                </h2>
-                <p class="text-xl md:text-2xl font-medium mb-6 shadow-text">Also, I'm a Senior Student at Governor
-                    Initiative For Cloud Applied Generative AI</p>
+                <div class="mb-4">
+                    <h1 id="homeHeading" class="text-3xl md:text-4xl font-bold shadow-text">
+                        Hello, I'm 
+                        <span id="nameDisplay">Enter Your Name</span>
+                    </h1>
+                    <input type="text" id="nameInput" placeholder="Enter your name" class="hidden border-b border-gray-300 outline-none focus:border-blue-500 transition duration-300">
+                </div>
+                <div class="mb-4">
+                    <h2 id="homeSubheading" class="text-3xl md:text-4xl font-bold text-blue-900 shadow-text">
+                        <span id="subheaderDisplay">Your Role</span>
+                    </h2>
+                    <input type="text" id="subheaderInput" placeholder="Enter your title" class="hidden border-b border-gray-300 outline-none focus:border-blue-500 transition duration-300">
+                </div>
+                <p id="homeDescription" class="text-xl md:text-2xl font-medium mb-6 shadow-text">
+                    Also, I'm a <span id="descriptionDisplay">Enter your Introduction</span>
+                </p>
+                <input type="text" id="descriptionInput" placeholder="Enter your description" class="hidden border-b border-gray-300 outline-none focus:border-blue-500 transition duration-300">
+                <button id="editButton" class="mt-4 px-4 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-600 transition duration-300">Edit</button>
+                <button id="saveButton" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-900 transition duration-300 hidden">Save</button>
 
-                <div class="flex flex-wrap space-x-4 md:space-x-6 mt-7">
-                    <a href="https://pk.linkedin.com/in/hadiqa-gohar-b64778300"
-                        class="text-pink-600 hover:text-pink-400 text-2xl md:text-3xl transition duration-300 social-icon"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/hadiqagohar12/"
-                        class="text-pink-600 hover:text-pink-400 text-2xl md:text-3xl transition duration-300 social-icon"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="mailto:tasleemhadiqa76@gmail.com"
-                        class="text-pink-600 hover:text-pink-400 text-2xl md:text-3xl transition duration-300 social-icon"><i
-                            class="fas fa-envelope"></i></a>
-                    <a href="https://m.facebook.com/p/Hadiqa-Gohar-61554985182774/"
-                        class="text-pink-600 hover:text-pink-400 text-2xl md:text-3xl transition duration-300 social-icon"><i
-                            class="fab fa-facebook"></i></a>
-                    <a href="https://github.com/HadiqaGohar"
-                        class="text-pink-600 hover:text-pink-400 text-2xl md:text-3xl transition duration-300 social-icon"><i
-                            class="fab fa-github"></i></a>
+                <div class="flex flex-col items-center justify-center mt-10 px-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Upload your profile picture:</label>
+                    <input type="file" id="imageUpload" accept="image/*" class="px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-600 cursor-pointer file:bg-pink-500 file:text-white file:px-4 file:py-2 file:rounded file:border-0 w-full max-w-sm">
                 </div>
             </div>
             <div class="flex-1 mt-10 md:mt-0">
-                <div
-                    class="hover:scale-105 overflow-hidden duration-300 rounded-full border-4 border-gray-300 shadow-lg h-[300px] md:h-[500px] w-[300px] md:w-[500px] mx-auto">
-                    <img src="hgpink.jpeg" alt="Hadiqa Gohar" class="w-full h-full object-cover" />
+                <div class="hover:scale-105 overflow-hidden duration-300 rounded-full border-4 border-gray-300 shadow-lg h-[300px] md:h-[500px] w-[300px] md:w-[500px] mx-auto">
+                    <img src="" alt="User Picture" id="homeProfileImage" class="w-full h-full object-cover" />
                 </div>
             </div>
         </div>
     </section>
-    <section id="about" class="py-10 md:py-20 bg-pink-100">
-        <h1 class="text-center text-5xl font-semibold font-serif shadow-text">About Me</h1>
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
 
-            <div class="flex-1 pb-5 md:pb-0 mt-10">
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 shadow-text animate-bounce">Hi!</h1>
-                <h2 class="text-3xl md:text-4xl font-bold text-pink-700 mb-4 shadow-text ">I'm Hadiqa Gohar</h2>
-                <p class="text-xl md:text-2xl font-medium mb-6 shadow-text ">A passionate web developer with expertise
-                    in <b>HTML, CSS, JavaScript, Python, and TypeScript</b>. My focus is on creating dynamic and
-                    responsive web applications using modern tools like Next.js, and Tailwind CSS. I enjoy turning
-                    complex ideas into intuitive and engaging user experiences. With a background in science and AI
-                    studies, I bring a strong analytical approach to problem-solving. My commitment to continuous
-                    learning drives me to stay updated with the latest technologies and best practices in web
-                    development. I’m excited about every opportunity to innovate and grow in this ever-evolving field. .
+
+
+<!-- .........................................About............................................ -->
+
+
+
+
+<section id="about" class="py-10 md:py-20 bg-blue-100">
+    <h1 class="text-center text-5xl font-semibold font-serif shadow-text">About <span class="text-blue-900 ">Me</span> </h1>
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+        <div class="flex-1 pb-5 md:pb-0 mt-10">
+            <div id="aboutTextContainer">
+                <h1 id="aboutHi" class="text-3xl md:text-4xl font-bold mb-4 shadow-text animate-bounce">Hi!</h1>
+                <h2 id="aboutName" class="text-3xl md:text-4xl font-bold text-blue-900 mb-4 shadow-text">I'm Hadiqa Gohar</h2>
+                <p id="aboutDescription" class="text-xl md:text-2xl font-medium mb-6 shadow-text">
+                    A passionate web developer with expertise in <b>HTML, CSS, JavaScript, Python, and TypeScript</b>. My focus is on creating dynamic and responsive web applications using modern tools like Next.js, and Tailwind CSS. I enjoy turning complex ideas into intuitive and engaging user experiences. With a background in science and AI studies, I bring a strong analytical approach to problem-solving. My commitment to continuous learning drives me to stay updated with the latest technologies and best practices in web development. I’m excited about every opportunity to innovate and grow in this ever-evolving field.
                 </p>
             </div>
-            <div class="flex-1 mt-10 md:mt-0">
-                <div
-                    class="hover:scale-125 overflow-hidden duration-1000 rounded-full border-4 border-gray-300 shadow-lg h-[300px] md:h-[500px] w-[300px] md:w-[500px] mx-auto">
-                    <img src="hgpink.jpeg" alt="About Hadiqa" class="w-full h-full object-cover" />
-                </div>
+            <div id="aboutEditContainer" class="hidden">
+                <input type="text" id="aboutHiInput" class="block mb-4 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter greeting">
+                <input type="text" id="aboutNameInput" class="block mb-4 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter your name">
+                <textarea id="aboutDescriptionInput" class="block mb-4 px-4 py-2 border border-gray-300 rounded-lg w-full" rows="5" placeholder="Enter description"></textarea>
+                <input type="file" id="imageUpload" class="block mb-4 px-4 py-2 border border-gray-300 rounded-lg w-full" />
+                <button id="saveAboutButton" class="text-white bg-blue-900 py-2 px-4 rounded hover:bg-blue-500 focus:outline-none">Save</button>
             </div>
         </div>
-        <div class="flex justify-center mt-16">
-            <a href="#">
-                <button
-                    class="text-white bg-pink-700 border-1 py-2 px-8 rounded text-lg hover:bg-pink-400 focus:outline-none ">
-                    Read More
-                </button>
-            </a>
-        </div>
-    </section>
-    <section id="education" class="py-16">
-        <div class="basis-[60%] pb-5  text-center text-5xl font-semibold font-serif shadow-text  ">My Education</div>
-        <div class="max-w-[1320px] max-h-[1320px] md:py-[80] py-8 flex mx-auto sm:flex-row flex-col">
-
-            <div class="flex flex-col gap-4  p-5 w-full">
-                <div
-                    class="border rounded-lg p-4 shadow-lg hover:scale-105 transition-transform duration-300 flex items-center mb-4 w-full">
-                    <i class="fa-solid fa-school text-3xl mr-4 animate-bounce"></i>
-                    <div>
-                        <h1 class="text-2xl font-bold">Matric in Science (Biology)</h1>
-                        <h2 class="text-lg font-medium">Ebrahim Ali Bhai Govt.Girl's Sec, School</h2>
-                        <h2 class="text-lg">2019-2020</h2>
-                    </div>
-                </div>
-                <div
-                    class="border rounded-lg p-4 shadow-lg hover:scale-105 transition-transform duration-300 flex items-center mb-4 w-full">
-                    <i class="fa-solid fa-school text-3xl mr-4 animate-bounce"></i>
-                    <div>
-                        <h1 class="text-2xl font-bold">Intermedite in Science (Pre-Medical)</h1>
-                        <h2 class="text-lg font-medium">G.I.S.A.C.C</h2>
-                        <h2 class="text-lg">2022-2024</h2>
-                    </div>
-                </div>
-                <div
-                    class="border rounded-lg p-4 shadow-lg hover:scale-105 transition-transform duration-300 flex items-center mb-4 w-full">
-                    <i class="fa-solid fa-school text-3xl mr-4 animate-bounce"></i>
-                    <div>
-                        <h1 class="text-2xl font-bold">Artificial Intelligency (IT Marqee)</h1>
-                        <h2 class="text-lg font-medium">Governor House </h2>
-                        <h2 class="text-lg">2024-2025</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="hover:scale-90 overflow-hidden duration-1000 rounded-2xl h-[450px] w-[800px] max-sm">
-                <img src="https://img.freepik.com/premium-photo/colorful-light-bulb-brain-with-books-stationery-education-concept-ai-generated-back-school-education-background-concept-with-falling-balancing-school-accessories-items_620624-12160.jpg"
-                    alt="Education Image" class="object-cover w-full h-full mb-4 md:mb-0" />
-            </div>
-
-        </div>
-    </section>
-    <section id="skills" class="py-16 bg-pink-100">
-        <div class="text-5xl text-center font-serif font-bold animate-pulse mb-8 shadow-text">Skills</div>
-        <div class="max-w-4xl mx-auto shadow-lg grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
-            <div class="border rounded-lg p-4 shadow-lg text-pink-700 bg-white hover:text-white hover:bg-pink-700 transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">HTML</h1>
-            </div>
-            <div class="border rounded-lg p-4 shadow-lg text-pink-700 bg-white hover:text-white hover:bg-pink-700  transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">CSS</h1>
-            </div>
-            <div class="border rounded-lg p-4 shadow-lg text-pink-700 bg-white hover:text-white hover:bg-pink-700 transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">JavaScript</h1>
-            </div>
-            <div class="border rounded-lg p-4 shadow-lg text-pink-700 bg-white hover:text-white hover:bg-pink-700  transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">TypeScript</h1>
-            </div>
-            <div class="border rounded-lg p-4 shadow-lg text-pink-700 bg-white hover:text-white hover:bg-pink-700  transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">Node.js</h1>
-            </div>
-            <div class="border rounded-lg p-4 shadow-lg text-pink-700 bg-white hover:text-white hover:bg-pink-700 transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">Python</h1>
-            </div>
-            <div class="border rounded-lg p-4 shadow-lg text-pink-700 bg-white hover:text-white hover:bg-pink-700  transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">Next.js</h1>
-            </div>
-            <div
-                class="text-pink-700 bg-white hover:text-white hover:bg-pink-700 border rounded-lg p-4 shadow-lg  transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">React.js</h1>
+        <div class="flex-1 mt-10 md:mt-0">
+            <div class="hover:scale-125 overflow-hidden duration-1000 rounded-full border-4 border-gray-300 shadow-lg h-[300px] md:h-[500px] w-[300px] md:w-[500px] mx-auto">
+                <img src="" alt="About User" class="w-full h-full object-cover" id="aboutImage"/>
             </div>
         </div>
-    </section>
-
-    <section id="social" class="py-16 bg-pink-100">
-        <div class="text-5xl text-center font-serif font-bold mb-8">
-            <h2 class="text-4xl font-bold text-black shadow-text">
-                Find Me
-            </h2>
-        </div>
-        <div class="max-w-4xl mx-auto grid grid-cols-3 gap-4 text-center">
-            <link href="https://github.com/HadiqaGohar">
-            <div
-                class="border rounded-lg p-4 shadow-lg text-3xl mb-2  text-pink-700 bg-white hover:text-white hover:bg-pink-700 transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">GitHub</h1>
-            </div>
-            </link>
-            <Link href="https://www.npmjs.com/~hadiqagohar">
-            <div
-                class="border rounded-lg p-4 shadow-lg text-3xl mb-2  text-pink-700 bg-white hover:text-white hover:bg-pink-700 transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">NPM</h1>
-            </div>
-            </Link>
-            <Link href="https://vercel.com/hadiqa-gohar-s-projects">
-            <div
-                class="border rounded-lg p-4 shadow-lg text-3xl mb-2  text-pink-700 bg-white hover:text-white hover:bg-pink-700 transition-colors duration-300">
-
-                <h1 class="text-xl font-semibold">Vercel</h1>
-            </div>
-            </Link>
-        </div>
-
-    </section>
-
-    <section id="contact" class="py-16 bg-pink-100">
-        <h1 class="text-center text-5xl font-semibold font-serif shadow-text mb-12">Contact Me</h1>
-        <div class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row gap-7">
-            <!-- Contact Form -->
-            <form action="https://api.web3forms.com/submit" method="POST"
-                class="flex-1 basis-[60%] bg-pink-50 p-6 rounded-lg shadow-lg">
-                <div class="mb-6">
-                    <h2 class="text-2xl font-semibold mb-2 text-pink-700 shadow-text">Get in Touch</h2>
-                    <hr class="border-pink-300  mb-4">
-                </div>
-                <input type="hidden" name="access_key" value="671277a9-3056-46df-ae88-682920d99420">
-                <input type="text" name="name" placeholder="Your Name"
-                    class="contact-inputs mb-4 w-full p-3 border border-pink-300 rounded-md" required>
-                <input type="email" name="email" placeholder="Your Email"
-                    class="contact-inputs mb-4 w-full p-3 border border-pink-300 rounded-md" required>
-                <textarea name="message" placeholder="Your Message"
-                    class="contact-inputs mb-4 w-full p-3 border border-pink-300 rounded-md" required></textarea>
-                <button type="submit"
-                    class="w-full bg-pink-700 text-white py-2 px-4 rounded-md hover:bg-pink-600 transition-colors duration-300">Submit</button>
-            </form>
-            <!-- Contact Image -->
-            <div class="px-4 flex-shrink-0 basis-[40%] text-center">
-                <img src="https://img.freepik.com/premium-photo/pink-themed-side-view-robot-face-illustration-about-artificial-intelligence-generative-ai_343887-762.jpg"
-                    alt="Contact Image" class="w-full h-full object-cover rounded-md shadow-md mb-4 md:mb-0">
-            </div>
-        </div>
-    </section>
-    <h1 class="text-center text-5xl font-semibold font-serif shadow-text mb-12">Create Your Resume</h1>
-    <section id="resume" class="bg-pink-100 py-10">
-        <div class="container mx-auto px-4">
-
-            <div class="flex flex-wrap justify-center">
-                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-pink-700 shadow-text">Edit Your Resume</h3>
-                        <form id="resumeForm">
-                            <label class="block mb-2">
-                                <span class="text-gray-700">Name:</span>
-                                <input type="text" id="resumeName" class="border border-gray-300 rounded-lg p-2 w-full"
-                                    value="">
-                            </label>
-                            <label class="block mb-2">
-                                <span class="text-gray-700">Description:</span>
-                                <textarea id="resumeDescription"
-                                    class="border border-gray-300 rounded-lg p-2 w-full"></textarea>
-                            </label>
-                            <button type="button" onclick="updateResume()"
-                                class="text-white bg-pink-700 border-1 py-2 px-8 rounded text-lg hover:bg-pink-400 focus:outline-none">Save
-                                Changes</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6">
-                    <div id="resumePreview" class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-pink-700 shadow-text">Resume Preview</h3>
-                        <div id="previewContent">
-                            <!-- Dynamic content will be inserted here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="flex justify-center mt-10 mb-10">
-        <button id="downloadResume"
-            class=" text-white bg-pink-700 border-1 py-2 px-8 rounded text-lg hover:bg-pink-400 focus:outline-none">
-            Download Resume
-        </button>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script>
-        document.getElementById('downloadResume').addEventListener('click', () => {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            const name = document.getElementById('resumeName').value;
-            const description = document.getElementById('resumeDescription').value;
-
-            doc.text(`Name: ${name}`, 10, 10);
-            doc.text(`Description: ${description}`, 10, 20);
-
-            doc.save('resume.pdf');
-        });
-    </script>
+    <div class="flex justify-center mt-16">
+        <a href="#">
+            <button class="text-white bg-blue-900 border-1 py-2 px-8 rounded text-lg hover:bg-blue-600 focus:outline-none">Read More</button>
+        </a>
+    </div>
+    <div class="flex justify-center mt-4">
+        <button id="editAboutButton" class="text-white bg-blue-600 py-2 px-4 rounded text-lg hover:bg-blue-900 focus:outline-none">Edit</button>
+    </div>
+</section>
 
 
 
-    <!-- Footer -->
-    <footer class="bg-pink-900 text-white py-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-sm">Copyright &copy; 2024 by Hadiqa Gohar | All Rights Reserved.</p>
+<!-- ...................................Education............................................. -->
+
+
+
+<section id="education" class="py-16 bg-blue-100">
+    <h1 class="text-center text-5xl font-semibold font-serif shadow-text">My  <span class="text-blue-900 ">Education</span> </h1>
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+        <div class="flex-1 pb-5 md:pb-0 mt-10">
+            <div id="educationTextContainer">
+                <!-- Education Entry 1 -->
+                <div class="border rounded-lg p-4 shadow-lg flex items-center mb-4 w-full">
+                    <i class="fa-solid fa-school text-3xl mr-4 animate-bounce"></i>
+                    <div>
+                        <h1 id="degree1" class="text-2xl font-bold">Matric in Science (Biology)</h1>
+                        <h2 id="school1" class="text-lg font-medium">Ebrahim Ali Bhai Govt.Girl's Sec, School</h2>
+                        <h2 id="year1" class="text-lg">2019-2020</h2>
+                    </div>
+                </div>
+                <!-- Education Entry 2 -->
+                <div class="border rounded-lg p-4 shadow-lg flex items-center mb-4 w-full">
+                    <i class="fa-solid fa-school text-3xl mr-4 animate-bounce"></i>
+                    <div>
+                        <h1 id="degree2" class="text-2xl font-bold">Intermediate in Science (Pre-Medical)</h1>
+                        <h2 id="school2" class="text-lg font-medium">G.I.S.A.C.C</h2>
+                        <h2 id="year2" class="text-lg">2022-2024</h2>
+                    </div>
+                </div>
+                <!-- Education Entry 3 -->
+                <div class="border rounded-lg p-4 shadow-lg flex items-center mb-4 w-full">
+                    <i class="fa-solid fa-school text-3xl mr-4 animate-bounce"></i>
+                    <div>
+                        <h1 id="degree3" class="text-2xl font-bold">Artificial Intelligence (IT Marquee)</h1>
+                        <h2 id="school3" class="text-lg font-medium">Governor House</h2>
+                        <h2 id="year3" class="text-lg">2024-2025</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div id="educationEditContainer" class="hidden">
+                <!-- For school -->
+                <div class="mb-4">
+                    <label for="degree1Input">Degree:</label>
+                    <input type="text" id="degree1Input" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter degree">
+                </div>
+                <div class="mb-4">
+                    <label for="school1Input">School:</label>
+                    <input type="text" id="school1Input" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter school">
+                </div>
+                <div class="mb-4">
+                    <label for="year1Input">Year:</label>
+                    <input type="text" id="year1Input" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter year">
+                </div>
+
+                <!-- For college -->
+                <div class="mb-4">
+                    <label for="degree2Input">Degree:</label>
+                    <input type="text" id="degree2Input" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter degree">
+                </div>
+                <div class="mb-4">
+                    <label for="college2Input">College:</label>
+                    <input type="text" id="college2Input" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter college">
+                </div>
+                <div class="mb-4">
+                    <label for="year2Input">Year:</label>
+                    <input type="text" id="year2Input" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter year">
+                </div>
+
+                <!-- For university -->
+                <div class="mb-4">
+                    <label for="degree3Input">Degree:</label>
+                    <input type="text" id="degree3Input" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter degree">
+                </div>
+                <div class="mb-4">
+                    <label for="university3Input">University:</label>
+                    <input type="text" id="university3Input" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter university">
+                </div>
+                <div class="mb-4">
+                    <label for="year3Input">Year:</label>
+                    <input type="text" id="year3Input" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter year">
+                </div>
+
+                <div class="mb-4">
+                    <label for="image-url">Image URL:</label>
+                    <input type="text" id="image-url" class="block mb-2 px-4 py-2 border border-gray-300 rounded-lg w-full" placeholder="Enter image URL">
+                </div>
+                <button id="saveEducationButton" class="text-white bg-blue-900 py-2 px-4 rounded hover:bg-blue-00 focus:outline-none">Save</button>
+            </div>
         </div>
-    </footer>
+        <div class="flex-1 mt-10 md:mt-0">
+            <div class="hover:scale-125 overflow-hidden duration-1000 rounded-2xl border-4 border-gray-300 shadow-lg h-[300px] md:h-[500px] w-[300px] md:w-[500px] mx-auto">
+                <img id="educationImage" src="https://img.freepik.com/premium-photo/colorful-light-bulb-brain-with-books-stationery-education-concept-ai-generated-back-school-education-background-concept-with-falling-balancing-school-accessories-items_620624-12160.jpg" alt="Education Image" class="object-cover w-full h-full" />
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center mt-16">
+        <a href="#">
+            <button class="text-white bg-blue-900 border-1 py-2 px-8 rounded text-lg hover:bg-blue-500 focus:outline-none">Read More</button>
+        </a>
+    </div>
+    <div class="flex justify-center mt-4">
+        <button id="editEducationButton" class="text-white bg-blue-600 py-2 px-4 rounded text-lg hover:bg-blue-900 focus:outline-none">Edit</button>
+    </div>
+</section>
 
-    <script src="main.js">
 
-    </script>
+
+<!-- .............................................Skills Section......................................... -->
+
+
+
+<!-- Skills Section -->
+<section id="skills" class="py-16 bg-blue-100">
+    <div class="text-5xl text-center font-serif font-bold mb-8 shadow-text">My   <span class="text-blue-900 ">Skills</span></div>
+    <div id="skills-container" class="max-w-4xl mx-auto shadow-lg grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
+        <!-- Existing skill items here -->
+        <div class="border rounded-lg p-4 shadow-lg text-blue-900 bg-white hover:text-white hover:bg-blue-900 transition-colors duration-300">
+            <input type="text" value="Add Skills" class="text-xl font-semibold w-full text-center bg-transparent border-none focus:outline-none" />
+        </div>
+        
+        <!-- Add more skills here if needed -->
+    </div>
+    <div class="text-center mt-4">
+        <button id="add-skill-btn" class="px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Add More Skill</button>
+    </div>
+    <div class="text-center mt-4">
+        <button id="toggleSkillsButton" class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">Toggle Skills Visibility</button>
+    </div>
+</section>
+
+
+<!-- ...................work experiance................................ -->
+
+
+<section id="workExperience" class="py-16 md:py-20 bg-blue-100">
+    <div class="max-w-6xl mx-auto bg-blue-100 shadow-lg">
+        <h2 class="text-5xl text-center font-serif font-bold mb-8 shadow-text">Work  <span class="text-blue-900 ">Experience</span> </h2>
+
+        <div class="bg-blue-100 p-6 rounded-lg shadow-lg">
+            <div class="mb-4">
+                <h3 id="jobTitleDisplay" class="text-xl md:text-2xl font-semibold">
+                    <span class="text-blue-900">Job Title:</span> <span id="jobTitle">Enter Job Title</span>
+                </h3>
+                <input type="text" id="jobTitleInput" placeholder="Enter Job Title" class="hidden border-b border-gray-300 outline-none focus:border-blue-500 transition duration-300 w-full">
+            </div>
+
+            <div class="mb-4">
+                <h3 id="companyNameDisplay" class="text-xl md:text-2xl font-semibold">
+                    <span class="text-blue-900">Company:</span> <span id="companyName">Enter Company Name</span>
+                </h3>
+                <input type="text" id="companyNameInput" placeholder="Enter Company Name" class="hidden border-b border-gray-300 outline-none focus:border-blue-500 transition duration-300 w-full">
+            </div>
+
+            <div class="mb-4">
+                <p id="jobDescriptionDisplay" class="text-md md:text-lg">
+                    <span class="text-blue-900 text-xl font-bold">Description:</span> <span id="jobDescription">Enter Job Description</span>
+                </p>
+                <textarea id="jobDescriptionInput" placeholder="Enter Job Description" class="hidden border-b border-gray-300 outline-none focus:border-blue-500 transition duration-300 w-full h-24"></textarea>
+            </div>
+
+            <button id="editWorkButton" class="mt-4 px-4 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-600 transition duration-300">Edit</button>
+            <button id="saveWorkButton" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-900 transition duration-300 hidden">Save</button>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- .....................FOOTER............................. -->
+
+
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white p-4 text-center">
+    <p class="text-sm">&copy; 2024 Hadiqa Gohar. All rights reserved.</p>
+</footer>
+
+
+    <script src="script.js"> </script>
 
 </body>
-
 </html>
+
+
+
